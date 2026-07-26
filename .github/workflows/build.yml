@@ -2,7 +2,7 @@ name: Build & Deploy
 
 on:
   schedule:
-    - cron: '*/15 * * * *'    # 每小时整点执行一次
+    - cron: '*/15 * * * *'    # 每15分钟整点执行一次
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -19,7 +19,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'        # 缓存 npm 依赖，加速安装
 
       - name: Cache build output
         uses: actions/cache@v4
