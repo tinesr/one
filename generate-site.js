@@ -24,8 +24,13 @@ function fixImg(url, base) {
     return url;
 }
 
-// ── SEO 配置（从 seo.json 读取）──
-const SEO = loadJSON('seo.json') || {};
+// ── SEO 配置（从根目录 seo.json 读取）──
+function loadRootJSON(name) {
+    const fp = path.join(__dirname, name);
+    if (!fs.existsSync(fp)) return null;
+    return JSON.parse(fs.readFileSync(fp, 'utf8'));
+}
+const SEO = loadRootJSON('seo.json') || {};
 const SEO_KEYWORDS = SEO.keywords || '';
 const SEO_DESC = SEO.description || '';
 const SITE_TITLE = SEO.title || '精选账号商城';
