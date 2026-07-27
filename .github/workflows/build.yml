@@ -2,7 +2,7 @@ name: Build & Deploy
 
 on:
   schedule:
-    - cron: '*/15 * * * *'    # 每15分钟执行一次
+    - cron: '*/15 * * * *'    
   workflow_dispatch:
   push:
     branches: [ main ]
