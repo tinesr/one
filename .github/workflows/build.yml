@@ -29,7 +29,8 @@ jobs:
 
       - name: Build
         env:
-          SITE_URL: https://hltx.eu.cc
+          SITE_URL: https://hltx.cc.cd
+          GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io
         run: |
           chmod +x build.sh
           bash build.sh
